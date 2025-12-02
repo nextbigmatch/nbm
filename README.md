@@ -1,7 +1,7 @@
 
-  # Interactive Apple Vision Pro Prototype
+  # Premium Minimalist Website Design
 
-  This is a code bundle for Interactive Apple Vision Pro Prototype. The original project is available at https://www.figma.com/design/G2Vq421Mkx2c6y6whFDehm/Interactive-Apple-Vision-Pro-Prototype.
+  This is a code bundle for Premium Minimalist Website Design. The original project is available at https://www.figma.com/design/dKxtprSYRvt978kkVhSHMN/Premium-Minimalist-Website-Design.
 
   ## Running the code
 
