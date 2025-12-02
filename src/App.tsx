@@ -1,170 +1,65 @@
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence, useSpring, useMotionValue } from "motion/react";
-import IntroAnimation from "./components/IntroAnimation";
-import AppGrid from "./components/AppGrid";
-import AppWindow from "./components/AppWindow";
-import imgBackgroundApartment from "figma:asset/37a7bb5c3cce1cb84cadd7abd5c805a1c1e605ec.png";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Navigation } from "./components/navigation";
+import { Footer } from "./components/footer";
+import { DepthBackground } from "./components/depth-background";
+import { ScrollToTop } from "./components/scroll-to-top";
+import { Home } from "./pages/home";
+import { ServicesMain } from "./pages/services-main";
+import { ServiceMovieConversion } from "./pages/service-movie-conversion";
+import { ServiceShortFilms } from "./pages/service-short-films";
+import { ServiceReels } from "./pages/service-reels";
+import { ServiceAdvertising } from "./pages/service-advertising";
+import { ServiceDepthCompositing } from "./pages/service-depth-compositing";
+import { ServiceVRPrep } from "./pages/service-vr-prep";
+import { IndustriesMain } from "./pages/industries-main";
+import { IndustryFilmStudios } from "./pages/industry-film-studios";
+import { IndustryOTT } from "./pages/industry-ott";
+import { IndustryCreators } from "./pages/industry-creators";
+import { IndustryAgencies } from "./pages/industry-agencies";
+import { IndustryMusicLabels } from "./pages/industry-music-labels";
+import { IndustryDocumentaries } from "./pages/industry-documentaries";
+import { Partnership } from "./pages/partnership";
+import { Work } from "./pages/work";
+import { About } from "./pages/about";
+import { Careers } from "./pages/careers";
+import { Contact } from "./pages/contact";
 
 export default function App() {
-  const [showIntro, setShowIntro] = useState(true);
-  const [appOpen, setAppOpen] = useState(false);
-  const [selectedApp, setSelectedApp] = useState<number | null>(null);
-  
-  // Mouse position tracking for parallax
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-  
-  // Transform mouse values with layer-specific multipliers
-  const bgXRaw = useMotionValue(0);
-  const bgYRaw = useMotionValue(0);
-  const midXRaw = useMotionValue(0);
-  const midYRaw = useMotionValue(0);
-  
-  // Smooth spring animations for parallax layers
-  // Background: 1px movement (deepest)
-  const bgX = useSpring(bgXRaw, { stiffness: 80, damping: 30 });
-  const bgY = useSpring(bgYRaw, { stiffness: 80, damping: 30 });
-  
-  // Mid-depth: 3px movement (icons and floating cards)
-  const midX = useSpring(midXRaw, { stiffness: 120, damping: 25 });
-  const midY = useSpring(midYRaw, { stiffness: 120, damping: 25 });
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      const centerX = window.innerWidth / 2;
-      const centerY = window.innerHeight / 2;
-      
-      // Calculate offset from center, normalized (-1 to 1)
-      const offsetX = (e.clientX - centerX) / centerX;
-      const offsetY = (e.clientY - centerY) / centerY;
-      
-      // Apply layer-specific multipliers
-      // Background: 1px movement (deepest layer)
-      bgXRaw.set(offsetX * 1);
-      bgYRaw.set(offsetY * 1);
-      
-      // Mid-depth: 3px movement (icons + floating cards all together)
-      midXRaw.set(offsetX * 3);
-      midYRaw.set(offsetY * 3);
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, [bgXRaw, bgYRaw, midXRaw, midYRaw]);
-
-  const handleIntroComplete = () => {
-    setShowIntro(false);
-  };
-
-  const handleAppClick = (index: number) => {
-    setSelectedApp(index);
-    setTimeout(() => {
-      setAppOpen(true);
-    }, 100);
-  };
-
-  const handleClose = () => {
-    setAppOpen(false);
-    setTimeout(() => {
-      setSelectedApp(null);
-    }, 600);
-  };
-
   return (
-    <div className="relative w-screen h-screen overflow-hidden bg-black">
-      <AnimatePresence mode="wait">
-        {showIntro ? (
-          <motion.div
-            key="intro"
-            className="absolute inset-0"
-            initial={{ opacity: 1 }}
-            exit={{ opacity: 0, scale: 0.95 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <IntroAnimation onComplete={handleIntroComplete} />
-          </motion.div>
-        ) : (
-          <motion.div
-            key="main"
-            className="absolute inset-0"
-            initial={{ opacity: 0, scale: 1.05, y: 50 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 0.9, ease: "easeOut" }}
-          >
-            {/* Background - Center/Fill Container, slowest parallax (deepest layer) */}
-            <div 
-              className="absolute inset-0"
-              style={{
-                width: '100%',
-                height: '100%',
-                position: 'fixed',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                overflow: 'hidden',
-              }}
-            >
-              <motion.img
-                alt=""
-                src={imgBackgroundApartment}
-                className="pointer-events-none"
-                style={{
-                  width: '103%',
-                  height: '103%',
-                  objectFit: 'cover',
-                  objectPosition: 'center center',
-                  x: bgX,
-                  y: bgY,
-                }}
-              />
-            </div>
-
-            {/* Content Layer - 1920×1080 base resolution, scales from center */}
-            <div 
-              className="absolute inset-0 flex items-center justify-center"
-              style={{
-                width: '100%',
-                height: '100%',
-              }}
-            >
-              <AnimatePresence mode="wait">
-                {!appOpen ? (
-                  <motion.div
-                    key="grid"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.5 }}
-                    className="w-full h-full"
-                  >
-                    <AppGrid 
-                      onAppClick={handleAppClick} 
-                      selectedApp={selectedApp}
-                      midX={midX}
-                      midY={midY}
-                    />
-                  </motion.div>
-                ) : (
-                  <motion.div
-                    key="window"
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.95 }}
-                    transition={{ duration: 0.6 }}
-                    className="w-full h-full"
-                  >
-                    <AppWindow 
-                      onClose={handleClose}
-                      midX={midX}
-                      midY={midY}
-                    />
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
+    <Router>
+      <ScrollToTop />
+      <div className="relative min-h-screen overflow-x-hidden bg-black">
+        {/* Cinematic depth background */}
+        <DepthBackground />
+        
+        {/* Content */}
+        <div className="relative z-10">
+          <Navigation />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/services" element={<ServicesMain />} />
+            <Route path="/services/movie-conversion" element={<ServiceMovieConversion />} />
+            <Route path="/services/short-films" element={<ServiceShortFilms />} />
+            <Route path="/services/reels" element={<ServiceReels />} />
+            <Route path="/services/advertising" element={<ServiceAdvertising />} />
+            <Route path="/services/depth-compositing" element={<ServiceDepthCompositing />} />
+            <Route path="/services/vr-prep" element={<ServiceVRPrep />} />
+            <Route path="/industries" element={<IndustriesMain />} />
+            <Route path="/industries/film-studios" element={<IndustryFilmStudios />} />
+            <Route path="/industries/ott" element={<IndustryOTT />} />
+            <Route path="/industries/creators" element={<IndustryCreators />} />
+            <Route path="/industries/agencies" element={<IndustryAgencies />} />
+            <Route path="/industries/music-labels" element={<IndustryMusicLabels />} />
+            <Route path="/industries/documentaries" element={<IndustryDocumentaries />} />
+            <Route path="/partnership" element={<Partnership />} />
+            <Route path="/work" element={<Work />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/careers" element={<Careers />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+          <Footer />
+        </div>
+      </div>
+    </Router>
   );
 }
