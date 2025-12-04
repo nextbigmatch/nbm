@@ -21,7 +21,7 @@ export function Footer() {
         </div>
 
         {/* Links Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12 max-w-4xl mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12 max-w-4xl mx-auto text-center">
           <div>
             <h3 className="text-white text-sm mb-4 heading-subtitle">Company</h3>
             <div className="space-y-2">
