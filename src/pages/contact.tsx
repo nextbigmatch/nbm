@@ -53,7 +53,7 @@ export function Contact() {
               Let's Create Something<br />Immersive
             </h1>
             <p className="text-xl text-white/50 max-w-2xl mx-auto mb-12">
-              Tell us about your project and we'll get back to you within 24 hours
+              Tell us about your project and we'll get back to you within 6 hours
             </p>
             
             {/* Contact Hero Image */}
@@ -100,16 +100,16 @@ export function Contact() {
 
                     <div>
                       <Label htmlFor="email" className="text-white mb-2 block">
-                        Email Address *
+                        Email *
                       </Label>
                       <Input
                         id="email"
                         type="email"
-                        placeholder="john@company.com"
+                        required
+                        placeholder="you@company.com"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        required
-                        className="bg-white/5 border-white/20 text-white placeholder:text-white/30 h-12"
+                        className="bg-white/5 border-white/20 text-white placeholder:text-white/40 h-12 focus:border-[#0074C7]/60 focus:ring-[#0074C7]/20"
                       />
                     </div>
                   </div>
@@ -128,52 +128,28 @@ export function Contact() {
                     />
                   </div>
 
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <Label htmlFor="projectType" className="text-white mb-2 block">
-                        Project Type *
-                      </Label>
-                      <Select
-                        value={formData.projectType}
-                        onValueChange={(value) => setFormData({ ...formData, projectType: value })}
-                      >
-                        <SelectTrigger className="bg-white/5 border-white/20 text-white h-12">
-                          <SelectValue placeholder="Select project type" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="movie">Feature Film</SelectItem>
-                          <SelectItem value="short">Short Film</SelectItem>
-                          <SelectItem value="reels">Reels & Vertical Content</SelectItem>
-                          <SelectItem value="advertising">Advertising / Brand Film</SelectItem>
-                          <SelectItem value="music">Music Video</SelectItem>
-                          <SelectItem value="documentary">Documentary</SelectItem>
-                          <SelectItem value="vr">VR / Vision Pro Prep</SelectItem>
-                          <SelectItem value="other">Other</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
-
-                    <div>
-                      <Label htmlFor="budget" className="text-white mb-2 block">
-                        Budget Range
-                      </Label>
-                      <Select
-                        value={formData.budget}
-                        onValueChange={(value) => setFormData({ ...formData, budget: value })}
-                      >
-                        <SelectTrigger className="bg-white/5 border-white/20 text-white h-12">
-                          <SelectValue placeholder="Select budget range" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="under-5k">Under $5,000</SelectItem>
-                          <SelectItem value="5k-15k">$5,000 - $15,000</SelectItem>
-                          <SelectItem value="15k-50k">$15,000 - $50,000</SelectItem>
-                          <SelectItem value="50k-100k">$50,000 - $100,000</SelectItem>
-                          <SelectItem value="over-100k">Over $100,000</SelectItem>
-                          <SelectItem value="flexible">Flexible / TBD</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
+                  <div>
+                    <Label htmlFor="projectType" className="text-white mb-2 block">
+                      Project Type *
+                    </Label>
+                    <Select
+                      value={formData.projectType}
+                      onValueChange={(value) => setFormData({ ...formData, projectType: value })}
+                    >
+                      <SelectTrigger className="bg-white/5 border-white/20 text-white h-12">
+                        <SelectValue placeholder="Select project type" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="movie">Feature Film</SelectItem>
+                        <SelectItem value="short">Short Film</SelectItem>
+                        <SelectItem value="reels">Reels & Vertical Content</SelectItem>
+                        <SelectItem value="advertising">Advertising / Brand Film</SelectItem>
+                        <SelectItem value="music">Music Video</SelectItem>
+                        <SelectItem value="documentary">Documentary</SelectItem>
+                        <SelectItem value="vr">VR / Vision Pro Prep</SelectItem>
+                        <SelectItem value="other">Other</SelectItem>
+                      </SelectContent>
+                    </Select>
                   </div>
 
                   <div>
@@ -198,7 +174,7 @@ export function Contact() {
                   </Button>
 
                   <p className="text-white/40 text-sm text-center">
-                    We typically respond within 24 hours
+                    We typically respond within 6 hours
                   </p>
                 </form>
               ) : (

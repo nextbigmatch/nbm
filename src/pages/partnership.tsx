@@ -9,8 +9,8 @@ function SparkBackground() {
       {/* Deep Navy Gradient Base */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#0a0e1a] via-[#0d1526] to-[#050810]" />
       
-      {/* Floating Spark Particles */}
-      {[...Array(25)].map((_, i) => (
+      {/* Floating Spark Particles - Reduced from 25 to 12 */}
+      {[...Array(12)].map((_, i) => (
         <motion.div
           key={i}
           className="absolute w-1 h-1 bg-white rounded-full"
@@ -34,8 +34,8 @@ function SparkBackground() {
         />
       ))}
 
-      {/* Blue Accent Sparks */}
-      {[...Array(15)].map((_, i) => (
+      {/* Blue Accent Sparks - Reduced from 15 to 8 */}
+      {[...Array(8)].map((_, i) => (
         <motion.div
           key={`blue-${i}`}
           className="absolute w-0.5 h-0.5 bg-[#1172BA] rounded-full"
@@ -58,12 +58,12 @@ function SparkBackground() {
         />
       ))}
 
-      {/* Ambient Blue Glow Orbs */}
+      {/* Ambient Blue Glow Orbs - Reduced blur and opacity */}
       <motion.div
-        className="absolute top-20 left-1/4 w-[600px] h-[600px] bg-[#1172BA]/20 rounded-full blur-[150px]"
+        className="absolute top-20 left-1/4 w-[500px] h-[500px] bg-[#1172BA]/15 rounded-full blur-[120px]"
         animate={{
-          scale: [1, 1.2, 1],
-          opacity: [0.2, 0.3, 0.2]
+          scale: [1, 1.15, 1],
+          opacity: [0.15, 0.25, 0.15]
         }}
         transition={{
           duration: 8,
@@ -72,29 +72,16 @@ function SparkBackground() {
         }}
       />
       <motion.div
-        className="absolute bottom-40 right-1/4 w-[500px] h-[500px] bg-[#0074C7]/15 rounded-full blur-[140px]"
+        className="absolute bottom-40 right-1/4 w-[400px] h-[400px] bg-[#0074C7]/12 rounded-full blur-[110px]"
         animate={{
-          scale: [1, 1.15, 1],
-          opacity: [0.15, 0.25, 0.15]
+          scale: [1, 1.12, 1],
+          opacity: [0.12, 0.2, 0.12]
         }}
         transition={{
           duration: 10,
           repeat: Infinity,
           ease: "easeInOut",
           delay: 2
-        }}
-      />
-      <motion.div
-        className="absolute top-1/2 right-1/3 w-[500px] h-[500px] bg-[#1172BA]/12 rounded-full blur-[130px]"
-        animate={{
-          scale: [1, 1.18, 1],
-          opacity: [0.12, 0.22, 0.12]
-        }}
-        transition={{
-          duration: 9,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 4
         }}
       />
     </div>
@@ -419,31 +406,41 @@ export function Partnership() {
 
               {/* Licensing Table */}
               <div className="backdrop-blur-[35px] bg-white/[0.06] border border-white/20 rounded-3xl overflow-hidden">
-                {/* Table Header */}
-                <div className="grid grid-cols-3 gap-6 bg-white/[0.08] border-b border-white/20 p-8">
+                {/* Table Header - Hidden on mobile */}
+                <div className="hidden md:grid grid-cols-3 gap-6 bg-white/[0.08] border-b border-white/20 p-8">
                   <div className="text-white/70 uppercase tracking-wider text-sm">License Type</div>
                   <div className="text-white/70 uppercase tracking-wider text-sm">NBM's Usage Rights</div>
                   <div className="text-white/70 uppercase tracking-wider text-sm">Ownership</div>
                 </div>
 
                 {/* 3-Year Exclusive License */}
-                <div className="grid grid-cols-3 gap-6 p-8 border-b border-white/10 hover:bg-white/[0.04] transition-colors">
-                  <div className="text-white/90">3-Year Exclusive License</div>
-                  <div className="text-white/70 text-sm leading-relaxed">
+                <div className="grid md:grid-cols-3 gap-6 p-6 md:p-8 border-b border-white/10 hover:bg-white/[0.04] transition-colors">
+                  <div className="text-white/90 md:mb-0 mb-4">
+                    <span className="md:hidden text-white/50 uppercase text-xs block mb-1">License Type</span>
+                    3-Year Exclusive License
+                  </div>
+                  <div className="text-white/70 text-sm leading-relaxed md:mb-0 mb-4">
+                    <span className="md:hidden text-white/50 uppercase text-xs block mb-2">NBM's Usage Rights</span>
                     NBM holds full exclusive usage rights to all 3D depth-converted content during the 3-year term, including the right to distribute and deploy the content as needed.
                   </div>
                   <div className="text-white/70 text-sm leading-relaxed">
+                    <span className="md:hidden text-white/50 uppercase text-xs block mb-2">Ownership</span>
                     NBM retains exclusive ownership of all 3D depth-converted content throughout the term.
                   </div>
                 </div>
 
                 {/* 2-Year Non-Exclusive License */}
-                <div className="grid grid-cols-3 gap-6 p-8 hover:bg-white/[0.04] transition-colors">
-                  <div className="text-white/90">2-Year Non-Exclusive License</div>
-                  <div className="text-white/70 text-sm leading-relaxed">
+                <div className="grid md:grid-cols-3 gap-6 p-6 md:p-8 hover:bg-white/[0.04] transition-colors">
+                  <div className="text-white/90 md:mb-0 mb-4">
+                    <span className="md:hidden text-white/50 uppercase text-xs block mb-1">License Type</span>
+                    2-Year Non-Exclusive License
+                  </div>
+                  <div className="text-white/70 text-sm leading-relaxed md:mb-0 mb-4">
+                    <span className="md:hidden text-white/50 uppercase text-xs block mb-2">NBM's Usage Rights</span>
                     For the next 2 years, NBM retains non-exclusive usage rights to the converted content for commercial purposes, without distribution rights.
                   </div>
                   <div className="text-white/70 text-sm leading-relaxed">
+                    <span className="md:hidden text-white/50 uppercase text-xs block mb-2">Ownership</span>
                     Ownership transfers to the partner. NBM retains only non-exclusive commercial usage rights.
                   </div>
                 </div>

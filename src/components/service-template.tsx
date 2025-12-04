@@ -113,10 +113,10 @@ export function ServiceTemplate({
               <h2 className="text-3xl text-white mb-6 heading-title">Key Features</h2>
               <div className="grid md:grid-cols-2 gap-4">
                 {features.map((feature, index) => (
-                  <div key={index} className="flex items-start gap-3">
-                    <div className="w-1.5 h-1.5 rounded-full bg-[#0074C7] mt-2" />
-                    <p className="text-white/70">{feature}</p>
-                  </div>
+                  <li key={index} className="flex items-start gap-3 text-white/60">
+                    <div className="w-1.5 h-1.5 rounded-full bg-[#0074C7] mt-2 flex-shrink-0" />
+                    <span>{feature}</span>
+                  </li>
                 ))}
               </div>
             </motion.div>
@@ -141,13 +141,6 @@ export function ServiceTemplate({
                   </div>
                 ))}
               </div>
-
-              {pricing && (
-                <div className="mt-6 pt-6 border-t border-white/10">
-                  <p className="text-white/50 text-sm mb-2">Starting at</p>
-                  <p className="text-2xl text-white">{pricing}</p>
-                </div>
-              )}
 
               <Link
                 to="/contact"

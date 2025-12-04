@@ -1,7 +1,7 @@
 
-  # Premium Minimalist Website Design
+  # NBM Final _v002
 
-  This is a code bundle for Premium Minimalist Website Design. The original project is available at https://www.figma.com/design/dKxtprSYRvt978kkVhSHMN/Premium-Minimalist-Website-Design.
+  This is a code bundle for NBM Final _v002. The original project is available at https://www.figma.com/design/xFZldRbBzvopknOtt5CSMc/NBM-Final-_v002.
 
   ## Running the code
 

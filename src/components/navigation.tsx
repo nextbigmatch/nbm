@@ -14,11 +14,11 @@ export function Navigation() {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-black/50 border-b border-white/10">
-      <div className="max-w-7xl mx-auto px-6 py-1">
+      <div className="max-w-7xl mx-auto px-6 py-6">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 -my-5">
-            <NBMLogo className="w-32 h-auto" color="#1172BA" />
+          <Link to="/" className="flex items-center gap-2 -my-5 ml-4">
+            <NBMLogo className="w-20 h-auto" color="#1172BA" />
           </Link>
 
           {/* Desktop Navigation */}
@@ -201,14 +201,38 @@ export function Navigation() {
 
             <Link
               to="/partnership"
-              className={`text-sm transition-colors ${
-                isActive("/partnership") ? "text-white" : "text-white/60 hover:text-white"
-              }`}
+              className="relative group"
             >
-              Partnership
-              {isActive("/partnership") && (
-                <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[#0074C7]" />
-              )}
+              {/* Animated pulsing ring */}
+              <motion.div
+                className="absolute inset-0 rounded-full border-2 border-[#1172BA]"
+                animate={{
+                  scale: [1, 1.2, 1],
+                  opacity: [0.5, 0, 0.5]
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              />
+              
+              {/* Main button */}
+              <div className="relative px-5 py-2 border-2 border-[#1172BA] text-[#1172BA] hover:bg-[#1172BA]/10 rounded-full transition-all group-hover:scale-105 text-sm backdrop-blur-sm flex items-center gap-2">
+                <motion.span
+                  className="inline-block w-1.5 h-1.5 bg-[#1172BA] rounded-full"
+                  animate={{
+                    scale: [1, 1.3, 1],
+                    opacity: [1, 0.5, 1]
+                  }}
+                  transition={{
+                    duration: 1.5,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                />
+                Partnership Program
+              </div>
             </Link>
             <Link
               to="/work"
@@ -280,7 +304,7 @@ export function Navigation() {
                   Industries
                 </Link>
                 <Link to="/partnership" className="px-4 py-2 text-white/60 hover:text-white rounded-lg" onClick={() => setMobileOpen(false)}>
-                  Partnership
+                  Partnership Program
                 </Link>
                 <Link to="/work" className="px-4 py-2 text-white/60 hover:text-white rounded-lg" onClick={() => setMobileOpen(false)}>
                   Work

@@ -10,6 +10,7 @@ import { InteractiveDepthReveal } from "../components/interactive-depth-reveal";
 import visionProRGB from "figma:asset/a9e8ee1f31a76ccbc2da9c27c627856adb852d13.png";
 import visionProDepth from "figma:asset/f2336ff5458c5e0729750688b36d48ca23e2f7bc.png";
 import teamBrandImage from "figma:asset/7e88f87d141e99cedc8502e548459f398bb6f00b.png";
+import immersiveExperienceImage from "figma:asset/9b12d47adc899fbc8ac1e3db7a3dc86d1df18f66.png";
 import { useState, useRef } from "react";
 
 export function Home() {
@@ -108,6 +109,9 @@ export function Home() {
               src={visionProRGB}
               alt="RGB view"
               className="absolute inset-0 w-full h-full object-cover"
+              style={{
+                filter: 'brightness(1.55)'
+              }}
             />
             
             {/* Depth Image (Revealed on Hover) */}
@@ -124,7 +128,7 @@ export function Home() {
                 alt="Depth map"
                 className="w-full h-full object-cover"
                 style={{
-                  filter: 'brightness(1.2)'
+                  filter: 'brightness(1.5)'
                 }}
               />
             </div>
@@ -157,7 +161,7 @@ export function Home() {
               </h1>
               
               <p className="text-xl md:text-2xl text-white/60 mb-12 max-w-3xl mx-auto">
-                Premium 3D Conversion & Immersive Content Production
+                Premium 3D Stereo Conversion, created for tomorrow's audience.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -321,6 +325,72 @@ export function Home() {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Immersive Experience Showcase - Full Width */}
+      <section className="py-32 px-6">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="backdrop-blur-[40px] bg-white/5 border border-white/10 rounded-3xl overflow-hidden relative"
+          >
+            {/* Soft glow effect */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#1172BA]/10 rounded-full blur-[120px] pointer-events-none" />
+            
+            {/* Content Grid */}
+            <div className="relative z-10 grid lg:grid-cols-2 gap-12 items-center p-12 md:p-16">
+              {/* Text Content */}
+              <div>
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                  viewport={{ once: true }}
+                >
+                  <h2 className="text-4xl md:text-5xl text-white mb-6 heading-title">
+                    Content That Leaps Off The Screen
+                  </h2>
+                  <p className="text-white/70 text-lg leading-relaxed mb-6">
+                    We transform content for the next era of mobile viewing — where glass-free 3D makes every moment rise off the screen.
+                  </p>
+                  <p className="text-white/60 leading-relaxed mb-8">
+                    Experience depth without the glasses. Our premium 3D conversion brings immersive viewing to everyday devices, creating unforgettable moments that truly stand out.
+                  </p>
+                  <Link
+                    to="/work"
+                    className="inline-block px-8 py-4 bg-white/10 backdrop-blur-xl border-2 border-[#1172BA]/40 text-white hover:bg-[#1172BA]/20 hover:border-[#1172BA]/60 rounded-full transition-all hover:scale-105 cta-glow"
+                  >
+                    See Our Work
+                  </Link>
+                </motion.div>
+              </div>
+
+              {/* Image */}
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                viewport={{ once: true }}
+              >
+                <div className="relative rounded-2xl overflow-hidden border border-white/10">
+                  <img
+                    src={immersiveExperienceImage}
+                    alt="Immersive 3D Experience"
+                    className="w-full h-full object-cover"
+                    style={{ 
+                      filter: 'brightness(1.1)'
+                    }}
+                  />
+                  {/* Subtle overlay for depth */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
+                </div>
+              </motion.div>
+            </div>
+          </motion.div>
         </div>
       </section>
 

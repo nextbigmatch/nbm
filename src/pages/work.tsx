@@ -3,53 +3,53 @@ import { Film, Video, Megaphone, Music, FileText, Play } from "lucide-react";
 import workHeroImage from "figma:asset/517f9d369f315ec617ee7ed0e189ac71673d655c.png";
 
 export function Work() {
-  const categories = [
-    { icon: Film, title: "Feature Films", count: "12+ Projects" },
-    { icon: Video, title: "Short Films & Reels", count: "200+ Conversions" },
-    { icon: Megaphone, title: "Advertising & Brand Films", count: "50+ Campaigns" },
-    { icon: Music, title: "Music Videos", count: "30+ Artists" },
-    { icon: FileText, title: "Documentaries", count: "8+ Series" },
-    { icon: Play, title: "OTT & Streaming", count: "15+ Platforms" }
-  ];
+  // const categories = [
+  //   { icon: Film, title: "Feature Films", count: "12+ Projects" },
+  //   { icon: Video, title: "Short Films & Reels", count: "200+ Conversions" },
+  //   { icon: Megaphone, title: "Advertising & Brand Films", count: "50+ Campaigns" },
+  //   { icon: Music, title: "Music Videos", count: "30+ Artists" },
+  //   { icon: FileText, title: "Documentaries", count: "8+ Series" },
+  //   { icon: Play, title: "OTT & Streaming", count: "15+ Platforms" }
+  // ];
 
-  const showcaseProjects = [
-    {
-      title: "Indie Drama Feature",
-      category: "Feature Film",
-      description: "92-minute dramatic feature converted for theatrical and festival distribution",
-      tags: ["Theatrical DCP", "Festival Circuit", "Streaming Masters"]
-    },
-    {
-      title: "Nature Documentary Series",
-      category: "Documentary",
-      description: "6-episode wildlife series for premium streaming tier",
-      tags: ["Streaming Series", "Wildlife", "4K 3D"]
-    },
-    {
-      title: "Luxury Brand Campaign",
-      category: "Advertising",
-      description: "60-second automotive commercial with immersive product showcase",
-      tags: ["TV Commercial", "Luxury Brand", "Multi-Format"]
-    },
-    {
-      title: "Travel Creator Reels",
-      category: "Social Media",
-      description: "10 destination reels changed for the better into vertical 3D experiences",
-      tags: ["Instagram Reels", "Vertical 3D", "Creator Content"]
-    },
-    {
-      title: "Visual Album Experience",
-      category: "Music",
-      description: "30-minute visual album for indie artist tour screenings",
-      tags: ["Music Video", "Tour Experience", "3D Screening"]
-    },
-    {
-      title: "Ocean Exploration Doc",
-      category: "Documentary",
-      description: "75-minute underwater documentary with enhanced depth",
-      tags: ["Museum Installation", "Festival Winner", "Educational"]
-    }
-  ];
+  // const showcaseProjects = [
+  //   {
+  //     title: "Indie Drama Feature",
+  //     category: "Feature Film",
+  //     description: "92-minute dramatic feature converted for theatrical and festival distribution",
+  //     tags: ["Theatrical DCP", "Festival Circuit", "Streaming Masters"]
+  //   },
+  //   {
+  //     title: "Nature Documentary Series",
+  //     category: "Documentary",
+  //     description: "6-episode wildlife series for premium streaming tier",
+  //     tags: ["Streaming Series", "Wildlife", "4K 3D"]
+  //   },
+  //   {
+  //     title: "Luxury Brand Campaign",
+  //     category: "Advertising",
+  //     description: "60-second automotive commercial with immersive product showcase",
+  //     tags: ["TV Commercial", "Luxury Brand", "Multi-Format"]
+  //   },
+  //   {
+  //     title: "Travel Creator Reels",
+  //     category: "Social Media",
+  //     description: "10 destination reels changed for the better into vertical 3D experiences",
+  //     tags: ["Instagram Reels", "Vertical 3D", "Creator Content"]
+  //   },
+  //   {
+  //     title: "Visual Album Experience",
+  //     category: "Music",
+  //     description: "30-minute visual album for indie artist tour screenings",
+  //     tags: ["Music Video", "Tour Experience", "3D Screening"]
+  //   },
+  //   {
+  //     title: "Ocean Exploration Doc",
+  //     category: "Documentary",
+  //     description: "75-minute underwater documentary with enhanced depth",
+  //     tags: ["Museum Installation", "Festival Winner", "Educational"]
+  //   }
+  // ];
 
   return (
     <div className="min-h-screen pt-32 pb-20 px-6">
@@ -87,7 +87,7 @@ export function Work() {
         </motion.div>
 
         {/* Categories Overview */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 mb-20">
+        {/* <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 mb-20">
           {categories.map((category, index) => (
             <motion.div
               key={category.title}
@@ -102,10 +102,10 @@ export function Work() {
               <p className="text-white/40 text-xs">{category.count}</p>
             </motion.div>
           ))}
-        </div>
+        </div> */}
 
         {/* Showcase Projects */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -113,9 +113,9 @@ export function Work() {
           className="mb-12"
         >
           <h2 className="text-3xl md:text-4xl text-white mb-8 text-center" style={{ fontFamily: "'Afacad Flux', sans-serif", fontWeight: 700, letterSpacing: '-0.02em', textTransform: 'uppercase' }}>Featured Projects</h2>
-        </motion.div>
+        </motion.div> */}
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+        {/* <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
           {showcaseProjects.map((project, index) => (
             <motion.div
               key={project.title}
@@ -128,7 +128,6 @@ export function Work() {
               <div className="absolute inset-0 bg-gradient-to-br from-[#0074C7]/10 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
               
               <div className="relative z-10">
-                {/* Placeholder for project visual */}
                 <div className="w-full h-48 bg-gradient-to-br from-white/10 to-white/5 rounded-xl mb-6 flex items-center justify-center border border-white/10">
                   <p className="text-white/30 text-sm">Preview Under NDA</p>
                 </div>
@@ -152,7 +151,7 @@ export function Work() {
               </div>
             </motion.div>
           ))}
-        </div>
+        </div> */}
 
         {/* NDA Notice */}
         <motion.div
