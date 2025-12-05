@@ -31,18 +31,18 @@ export function ServiceDepthCompositing() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="backdrop-blur-[40px] bg-white/5 border border-white/10 rounded-2xl p-10 mb-12"
+          className="backdrop-blur-[40px] bg-white/5 border border-white/10 rounded-2xl p-6 sm:p-8 md:p-10 mb-12"
         >
-          <div className="flex items-start gap-6">
-            <Layers className="w-16 h-16 text-[#0074C7] flex-shrink-0" />
+          <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
+            <Layers className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 text-[#0074C7] flex-shrink-0" />
             <div>
-              <h1 className="text-4xl md:text-5xl text-white mb-3 heading-display">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white mb-3 heading-display">
                 Depth Compositing & Stereo Cleanup
               </h1>
-              <p className="text-xl text-white/70 mb-4">
+              <p className="text-lg sm:text-xl text-white/70 mb-3 sm:mb-4">
                 Professional stereo refinement and technical quality assurance
               </p>
-              <p className="text-white/60 leading-relaxed">
+              <p className="text-sm sm:text-base text-white/60 leading-relaxed">
                 Already have 3D content but need expert cleanup, refinement, or technical QA? Our depth compositing and stereo cleanup services ensure your content meets the highest technical and artistic standards.
               </p>
             </div>
@@ -55,7 +55,7 @@ export function ServiceDepthCompositing() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="relative backdrop-blur-[40px] bg-white/5 border border-white/10 rounded-3xl overflow-hidden mb-16 h-[450px]"
+          className="relative backdrop-blur-[40px] bg-white/5 border border-white/10 rounded-3xl overflow-hidden mb-16 h-[350px] sm:h-[400px] md:h-[450px]"
         >
           <img
             src={depthCompositingHeroImage}
@@ -64,12 +64,12 @@ export function ServiceDepthCompositing() {
             style={{ filter: 'brightness(2.0) contrast(1.4)' }}
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent" />
-          <div className="absolute inset-0 flex items-center px-12">
+          <div className="absolute inset-0 flex items-center px-6 sm:px-8 md:px-12">
             <div className="max-w-2xl">
-              <h2 className="text-3xl md:text-4xl text-white mb-4 heading-title">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl text-white mb-3 sm:mb-4 heading-title">
                 Technical Excellence in Every Frame
               </h2>
-              <p className="text-white/80 text-lg">
+              <p className="text-white/80 text-sm sm:text-base md:text-lg">
                 From fixing stereo issues to preparing content for theatrical distribution, our technical team ensures flawless playback across all platforms.
               </p>
             </div>

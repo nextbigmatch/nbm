@@ -84,7 +84,7 @@ export function ServiceMovieConversion() {
           </div>
         </motion.div>
 
-        {/* Theatrical Experience - Full Width Image Section */}
+        {/* Immersive Experience Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -92,7 +92,7 @@ export function ServiceMovieConversion() {
           viewport={{ once: true }}
           className="backdrop-blur-[40px] bg-white/5 border border-white/10 rounded-3xl overflow-hidden mb-16"
         >
-          <div className="relative h-[400px] md:h-[500px]">
+          <div className="relative h-[350px] sm:h-[400px] md:h-[500px]">
             <img
               src={theaterAudienceImage}
               alt="Immersive theatrical 3D experience"
@@ -104,11 +104,11 @@ export function ServiceMovieConversion() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
             
             <div className="absolute inset-0 flex items-end">
-              <div className="p-8 md:p-12 max-w-3xl">
-                <h2 className="text-3xl md:text-4xl text-white mb-4 heading-title">
+              <div className="p-6 sm:p-8 md:p-12 max-w-3xl">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl text-white mb-3 sm:mb-4 heading-title">
                   The Ultimate Theatrical Experience
                 </h2>
-                <p className="text-white/90 text-lg leading-relaxed">
+                <p className="text-white/90 text-sm sm:text-base md:text-lg leading-relaxed">
                   Our 3D conversion brings audiences deeper into the story, creating an immersive cinematic experience that transforms passive viewing into emotional engagement. Every frame is crafted to enhance depth, dimension, and visual storytelling.
                 </p>
               </div>

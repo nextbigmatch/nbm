@@ -30,7 +30,7 @@ export function ServiceAdvertising() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="relative backdrop-blur-[40px] bg-white/5 border border-white/10 rounded-3xl overflow-hidden mb-16 min-h-[600px] flex items-center"
+          className="relative backdrop-blur-[40px] bg-white/5 border border-white/10 rounded-3xl overflow-hidden mb-16 min-h-[500px] sm:min-h-[550px] md:min-h-[600px] flex items-center"
         >
           {/* Background */}
           <div className="absolute inset-0">
@@ -43,27 +43,27 @@ export function ServiceAdvertising() {
             <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/50" />
           </div>
 
-          <div className="relative z-10 px-12 py-16 md:px-20 max-w-4xl">
-            <Megaphone className="w-20 h-20 text-[#0074C7] mb-6" />
-            <h1 className="text-6xl md:text-7xl text-white mb-6 heading-display">
+          <div className="relative z-10 px-6 py-12 sm:px-8 sm:py-14 md:px-12 md:py-16 lg:px-20 max-w-4xl">
+            <Megaphone className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 text-[#0074C7] mb-4 sm:mb-5 md:mb-6" />
+            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl text-white mb-4 sm:mb-5 md:mb-6 heading-display">
               Immersive Advertising
             </h1>
-            <p className="text-2xl text-white/80 mb-8 max-w-2xl">
+            <p className="text-lg sm:text-xl md:text-2xl text-white/80 mb-5 sm:mb-6 md:mb-8 max-w-2xl">
               Brand films and commercials with spatial depth that capture attention
             </p>
-            <p className="text-lg text-white/70 mb-10 max-w-2xl leading-relaxed">
+            <p className="text-sm sm:text-base md:text-lg text-white/70 mb-6 sm:mb-8 md:mb-10 max-w-2xl leading-relaxed">
               Stand out in the crowded advertising landscape with immersive 3D commercials and brand films. Perfect for TV spots, digital campaigns, product launches, and experiential marketing.
             </p>
-            <div className="flex gap-4">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
               <Link
                 to="/contact"
-                className="px-8 py-4 bg-[#0074C7]/30 backdrop-blur-xl border-2 border-[#0074C7]/60 text-white hover:bg-[#0074C7]/40 hover:border-[#0074C7]/80 rounded-xl transition-all cta-glow"
+                className="px-6 sm:px-8 py-3 sm:py-4 bg-[#0074C7]/30 backdrop-blur-xl border-2 border-[#0074C7]/60 text-white hover:bg-[#0074C7]/40 hover:border-[#0074C7]/80 rounded-xl transition-all cta-glow text-center"
               >
                 Start Your Campaign
               </Link>
               <Link
                 to="/work"
-                className="px-8 py-4 bg-white/10 backdrop-blur-xl border-2 border-white/20 text-white hover:bg-white/20 hover:border-white/30 rounded-xl transition-all"
+                className="px-6 sm:px-8 py-3 sm:py-4 bg-white/10 backdrop-blur-xl border-2 border-white/20 text-white hover:bg-white/20 hover:border-white/30 rounded-xl transition-all text-center"
               >
                 View Portfolio
               </Link>

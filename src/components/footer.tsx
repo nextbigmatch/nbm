@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Linkedin } from "lucide-react";
 import { NBMPattern } from "./nbm-pattern";
 import { NBMLogo } from "./nbm-logo";
 import { NBMGlass } from "./nbm-glass";
@@ -21,7 +22,7 @@ export function Footer() {
         </div>
 
         {/* Links Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12 max-w-4xl mx-auto text-center">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12 max-w-4xl mx-auto text-center md:text-left">
           <div>
             <h3 className="text-white text-sm mb-4 heading-subtitle">Company</h3>
             <div className="space-y-2">
@@ -87,10 +88,26 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-[#0074C7]/20 text-center">
-          <p className="text-white/30 text-sm">
-            © 2025 <span className="font-bold" style={{ fontFamily: 'Afacad Flux, sans-serif' }}>NBM™</span> (Next Big Match). All rights reserved.
-          </p>
+        <div className="pt-8 border-t border-[#0074C7]/20">
+          <div className="flex flex-col items-center justify-center gap-4">
+            {/* Social Links */}
+            <div className="flex items-center justify-center gap-4">
+              <a
+                href="https://www.linkedin.com/company/nextbigmatch"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center justify-center w-10 h-10 rounded-full border border-[#0074C7]/40 text-[#0074C7] hover:bg-[#0074C7]/10 hover:border-[#0074C7] transition-all hover:scale-110"
+                aria-label="Follow NBM on LinkedIn"
+              >
+                <Linkedin className="w-5 h-5" />
+              </a>
+            </div>
+
+            {/* Copyright */}
+            <p className="text-white/30 text-sm text-center">
+              © 2025 <span className="font-bold" style={{ fontFamily: 'Afacad Flux, sans-serif' }}>NBM™</span> (Next Big Match). All rights reserved.
+            </p>
+          </div>
         </div>
       </div>
     </footer>

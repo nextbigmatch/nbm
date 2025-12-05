@@ -23,6 +23,7 @@ import { Work } from "./pages/work";
 import { About } from "./pages/about";
 import { Careers } from "./pages/careers";
 import { Contact } from "./pages/contact";
+import NotFound from "./pages/404";
 
 export default function App() {
   return (
@@ -56,6 +57,7 @@ export default function App() {
             <Route path="/about" element={<About />} />
             <Route path="/careers" element={<Careers />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
           <Footer />
         </div>

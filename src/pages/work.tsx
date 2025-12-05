@@ -64,7 +64,7 @@ export function Work() {
           <div className="absolute top-40 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#0074C7]/20 rounded-full blur-[100px] pointer-events-none" />
           
           <div className="relative z-10">
-            <h1 className="text-5xl md:text-7xl text-white mb-6 tracking-tight" style={{ fontFamily: "'Afacad Flux', sans-serif", fontWeight: 700, letterSpacing: '-0.02em', textTransform: 'uppercase' }}>
+            <h1 className="text-5xl md:text-7xl text-white mb-6 heading-display">
               Our Work
             </h1>
             <p className="text-xl text-white/50 max-w-2xl mx-auto mb-12">

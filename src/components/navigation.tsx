@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { NBMLogo } from "./nbm-logo";
@@ -8,9 +8,38 @@ export function Navigation() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [industriesOpen, setIndustriesOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [mobileIndustriesOpen, setMobileIndustriesOpen] = useState(false);
   const location = useLocation();
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
 
   const isActive = (path: string) => location.pathname === path;
+
+  // Close mobile menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (mobileMenuRef.current && !mobileMenuRef.current.contains(event.target as Node)) {
+        setMobileOpen(false);
+        setMobileServicesOpen(false);
+        setMobileIndustriesOpen(false);
+      }
+    };
+
+    if (mobileOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [mobileOpen]);
+
+  // Close mobile menu when route changes
+  useEffect(() => {
+    setMobileOpen(false);
+    setMobileServicesOpen(false);
+    setMobileIndustriesOpen(false);
+  }, [location.pathname]);
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-black/50 border-b border-white/10">
@@ -292,17 +321,141 @@ export function Navigation() {
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               className="lg:hidden pt-4 pb-2"
+              ref={mobileMenuRef}
             >
               <div className="flex flex-col gap-2">
                 <Link to="/" className="px-4 py-2 text-white/60 hover:text-white rounded-lg" onClick={() => setMobileOpen(false)}>
                   Home
                 </Link>
-                <Link to="/services" className="px-4 py-2 text-white/60 hover:text-white rounded-lg" onClick={() => setMobileOpen(false)}>
-                  Services
-                </Link>
-                <Link to="/industries" className="px-4 py-2 text-white/60 hover:text-white rounded-lg" onClick={() => setMobileOpen(false)}>
-                  Industries
-                </Link>
+                
+                {/* Services Dropdown - Mobile */}
+                <div>
+                  <button
+                    onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                    className="w-full flex items-center justify-between px-4 py-2 text-white/60 hover:text-white rounded-lg"
+                  >
+                    <span>Services</span>
+                    <ChevronDown className={`w-4 h-4 transition-transform ${mobileServicesOpen ? 'rotate-180' : ''}`} />
+                  </button>
+                  <AnimatePresence>
+                    {mobileServicesOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        className="ml-4 mt-1 flex flex-col gap-1"
+                      >
+                        <Link
+                          to="/services/movie-conversion"
+                          className="px-4 py-2 text-sm text-white/50 hover:text-white/80 rounded-lg"
+                          onClick={() => setMobileOpen(false)}
+                        >
+                          3D Movie Conversion
+                        </Link>
+                        <Link
+                          to="/services/short-films"
+                          className="px-4 py-2 text-sm text-white/50 hover:text-white/80 rounded-lg"
+                          onClick={() => setMobileOpen(false)}
+                        >
+                          3D Short Films
+                        </Link>
+                        <Link
+                          to="/services/reels"
+                          className="px-4 py-2 text-sm text-white/50 hover:text-white/80 rounded-lg"
+                          onClick={() => setMobileOpen(false)}
+                        >
+                          3D Reels & Vertical Content
+                        </Link>
+                        <Link
+                          to="/services/advertising"
+                          className="px-4 py-2 text-sm text-white/50 hover:text-white/80 rounded-lg"
+                          onClick={() => setMobileOpen(false)}
+                        >
+                          Immersive Advertising
+                        </Link>
+                        <Link
+                          to="/services/depth-compositing"
+                          className="px-4 py-2 text-sm text-white/50 hover:text-white/80 rounded-lg"
+                          onClick={() => setMobileOpen(false)}
+                        >
+                          Depth Compositing & Cleanup
+                        </Link>
+                        <Link
+                          to="/services/vr-prep"
+                          className="px-4 py-2 text-sm text-white/50 hover:text-white/80 rounded-lg"
+                          onClick={() => setMobileOpen(false)}
+                        >
+                          VR / Vision Pro Prep
+                        </Link>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+
+                {/* Industries Dropdown - Mobile */}
+                <div>
+                  <button
+                    onClick={() => setMobileIndustriesOpen(!mobileIndustriesOpen)}
+                    className="w-full flex items-center justify-between px-4 py-2 text-white/60 hover:text-white rounded-lg"
+                  >
+                    <span>Industries</span>
+                    <ChevronDown className={`w-4 h-4 transition-transform ${mobileIndustriesOpen ? 'rotate-180' : ''}`} />
+                  </button>
+                  <AnimatePresence>
+                    {mobileIndustriesOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        className="ml-4 mt-1 flex flex-col gap-1"
+                      >
+                        <Link
+                          to="/industries/film-studios"
+                          className="px-4 py-2 text-sm text-white/50 hover:text-white/80 rounded-lg"
+                          onClick={() => setMobileOpen(false)}
+                        >
+                          Film Studios
+                        </Link>
+                        <Link
+                          to="/industries/ott"
+                          className="px-4 py-2 text-sm text-white/50 hover:text-white/80 rounded-lg"
+                          onClick={() => setMobileOpen(false)}
+                        >
+                          OTT Platforms
+                        </Link>
+                        <Link
+                          to="/industries/creators"
+                          className="px-4 py-2 text-sm text-white/50 hover:text-white/80 rounded-lg"
+                          onClick={() => setMobileOpen(false)}
+                        >
+                          Creators & Influencers
+                        </Link>
+                        <Link
+                          to="/industries/agencies"
+                          className="px-4 py-2 text-sm text-white/50 hover:text-white/80 rounded-lg"
+                          onClick={() => setMobileOpen(false)}
+                        >
+                          Advertising Agencies
+                        </Link>
+                        <Link
+                          to="/industries/music-labels"
+                          className="px-4 py-2 text-sm text-white/50 hover:text-white/80 rounded-lg"
+                          onClick={() => setMobileOpen(false)}
+                        >
+                          Music Labels
+                        </Link>
+                        <Link
+                          to="/industries/documentaries"
+                          className="px-4 py-2 text-sm text-white/50 hover:text-white/80 rounded-lg"
+                          onClick={() => setMobileOpen(false)}
+                        >
+                          Documentary Teams
+                        </Link>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+
                 <Link to="/partnership" className="px-4 py-2 text-white/60 hover:text-white rounded-lg" onClick={() => setMobileOpen(false)}>
                   Partnership Program
                 </Link>

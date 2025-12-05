@@ -69,7 +69,7 @@ export function ServiceShortFilms() {
           </motion.div>
         </div>
 
-        {/* Atmospheric Lighting Showcase */}
+        {/* Transforming Atmosphere Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -77,7 +77,7 @@ export function ServiceShortFilms() {
           viewport={{ once: true }}
           className="backdrop-blur-[40px] bg-white/5 border border-white/10 rounded-3xl overflow-hidden mb-16"
         >
-          <div className="relative h-[400px] md:h-[500px]">
+          <div className="relative h-[350px] sm:h-[400px] md:h-[500px]">
             <img
               src={cinematicLightingImage}
               alt="Cinematic depth and lighting transformation"
@@ -89,11 +89,11 @@ export function ServiceShortFilms() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
             
             <div className="absolute inset-0 flex items-end">
-              <div className="p-8 md:p-12 max-w-3xl">
-                <h2 className="text-3xl md:text-4xl text-white mb-4 heading-title">
+              <div className="p-6 sm:p-8 md:p-12 max-w-3xl">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl text-white mb-3 sm:mb-4 heading-title">
                   Transforming Atmosphere Through Depth
                 </h2>
-                <p className="text-white/90 text-lg leading-relaxed">
+                <p className="text-white/90 text-sm sm:text-base md:text-lg leading-relaxed">
                   3D conversion doesn't just add dimension—it transforms the entire atmosphere of your film. Watch as flat scenes gain cinematic depth, lighting becomes more dynamic, and every layer of your composition comes alive with spatial presence.
                 </p>
               </div>
